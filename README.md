@@ -34,5 +34,34 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static') # 정적파일 경로 설정
 ```  
   
 ```bash
-(myvenv) current directory $ python3 manage.py migrate
+(myvenv) current directory $ python3 manage.py migrate  # 데이터베이스 생성
 ```
+
+## 앱 생성
+```bash  
+(myvenv) current directory $ python3 manage.py startapp myApp  
+```  
+
+`mysite/settings.py`  
+```python  
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'myApp',
+]
+```
+생성한 애플리케이션을 장고에 사용한다고 알려주는 역할  
+  
+## 뷰 작성  
+  
+`myApp/views.py`에 뷰를 작성한 후 뷰를 호출하기 위하여 `url.py`를 작성하여 뷰와 연결
+  
+최상위 `URL_conf`에 작성한 `myApp`의 url을 연결  
+
+**include()** 함수는 다른 URL_conf들을 참조할 수 있도록 도와준다.  
+
+  
