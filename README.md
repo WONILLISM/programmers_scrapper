@@ -64,4 +64,24 @@ INSTALLED_APPS = [
 
 **include()** 함수는 다른 URL_conf들을 참조할 수 있도록 도와준다.  
 
+## 관리자 생성
+
+```bash
+(myvenv) current directory $ python3 manage.py createsuperuser
+```  
   
+## 모델 작성    
+  
+`myApp/models.py`
+```python
+from django.db import models
+
+class BoardData(models.Model):
+    title = models.CharField(max_length=200)
+    level = models.CharField(max_length=10)
+
+```
+  
+```bash
+(myvenv) current directory $ python3 manage.py mkaemigrations myApp  
+```  
